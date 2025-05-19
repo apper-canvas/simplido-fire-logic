@@ -4,7 +4,9 @@
 
 @layer base {
   body {
-    @apply bg-surface-50 text-surface-800 dark:bg-surface-900 dark:text-surface-100 min-h-screen transition-colors duration-200;
+    @apply bg-gradient-to-br from-white to-aqua-50 dark:from-surface-900 dark:to-surface-800 
+           text-surface-800 dark:text-surface-100 min-h-screen transition-colors duration-200;
+    background-attachment: fixed;
     font-family: 'Inter', sans-serif;
   }
 
@@ -27,15 +29,15 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm;
   }
   
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+    @apply bg-aqua-gradient text-white hover:shadow-md hover:translate-y-[-1px] focus:ring-primary;
   }
   
   .card {
-    @apply bg-white dark:bg-surface-800 rounded-2xl shadow-card p-6 transition-all;
+    @apply bg-white/90 dark:bg-surface-800/90 backdrop-blur-sm rounded-2xl shadow-card p-6 transition-all border border-white/50 dark:border-surface-700/50;
   }
 
   .input {
@@ -51,9 +53,26 @@
   }
 
   .task-item {
-    @apply flex items-center gap-3 p-3 hover:bg-surface-100 dark:hover:bg-surface-800 
-    rounded-xl transition-all duration-200;
+    @apply flex items-center gap-3 p-3 hover:bg-aqua-gradient-soft dark:hover:bg-surface-800/70 
+    rounded-xl transition-all duration-200 backdrop-blur-sm;
   }
+  
+  .water-card {
+    @apply relative overflow-hidden;
+  }
+  
+  .water-card::before {
+    @apply content-[''] absolute -bottom-6 left-0 right-0 h-8 bg-aqua-gradient-soft dark:bg-aqua-dark/20 
+           rounded-t-[50%] blur-sm opacity-80 transition-all duration-300;
+  }
+  
+  .water-card:hover::before {
+    @apply -bottom-3 opacity-100;
+  }
+  
+  .gradient-text {
+    @apply bg-aqua-gradient bg-clip-text text-transparent font-bold;
+  } 
 }
 
 @layer utilities {
@@ -67,5 +86,30 @@
   
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .wave-animation {
+    animation: wave 8s ease-in-out infinite alternate;
+  }
+  
+  @keyframes wave {
+    0% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+      border-radius: 40% 30% 60% 70% / 30% 40% 70% 60%;
+    }
+  }
+  
+  .bubble-button {
+    @apply relative overflow-hidden;
+  }
+  
+  .bubble-button::after {
+    @apply content-[''] absolute -bottom-1 left-0 right-0 h-1 bg-aqua-gradient rounded-t-full 
+           opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:h-2;
   }
 }

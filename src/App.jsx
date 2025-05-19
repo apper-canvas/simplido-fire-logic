@@ -23,9 +23,9 @@ function App() {
   return (
     <>
       <div className="app-container min-h-screen flex flex-col">
-        <header className="py-4 px-4 md:px-6 flex items-center justify-between bg-white dark:bg-surface-800 shadow-sm">
+        <header className="py-4 px-4 md:px-6 flex items-center justify-between bg-gradient-to-r from-aqua-400 to-secondary dark:from-aqua-600 dark:to-secondary-dark text-white shadow-md">
           <div className="flex items-center gap-2">
-            <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h1 className="text-xl md:text-2xl wave-animation gradient-text bg-gradient-to-r from-white to-aqua-100 dark:from-white dark:to-aqua-200">
               SimpliDo
             </h1>
           </div>
@@ -45,8 +45,8 @@ function App() {
           </Routes>
         </main>
         
-        <footer className="py-4 px-4 md:px-6 text-sm text-center text-surface-500 dark:text-surface-400">
-          <p>SimpliDo &copy; {new Date().getFullYear()} - Minimal Todo App</p>
+        <footer className="py-4 px-4 md:px-6 text-sm text-center text-surface-500 dark:text-surface-400 bg-gradient-to-t from-aqua-50/50 to-transparent dark:from-transparent">
+          <p>SimpliDo &copy; {new Date().getFullYear()} - <span className="gradient-text">Aqua Themed</span> Todo App</p>
         </footer>
       </div>
       
