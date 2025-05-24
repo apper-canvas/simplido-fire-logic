@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
-import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -56,59 +55,9 @@ function App() {
                 <p className="text-xs text-surface-500 dark:text-surface-400 -mt-1">Minimal Task Manager</p>
               </div>
             </motion.div>
-            {/* Navigation Menu */}
-            <nav className="hidden md:flex items-center gap-1 bg-surface-100/50 dark:bg-surface-800/50 rounded-xl p-1">
-              <Link
-                to="/"
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white dark:hover:bg-surface-700 text-surface-700 dark:text-surface-300 hover:text-surface-900 dark:hover:text-surface-100"
-              >
-                Tasks
-              </Link>
-              <Link
-                to="/dashboard"
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-white dark:hover:bg-surface-700 text-surface-700 dark:text-surface-300 hover:text-surface-900 dark:hover:text-surface-100 flex items-center gap-2"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-                Dashboard
-              </Link>
-            </nav>
             
-            {/* Mobile Menu Button and Theme Toggle Container */}
-            <div className="flex items-center gap-2">
-              {/* Mobile Navigation Menu */}
-              <div className="md:hidden relative">
-                <details className="relative">
-                  <summary className="p-3 rounded-xl bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 transition-all duration-300 shadow-sm cursor-pointer list-none">
-                    <svg className="w-5 h-5 text-surface-600 dark:text-surface-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  </summary>
-                  <div className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-surface-800 rounded-xl shadow-lg border border-surface-200 dark:border-surface-700 py-2 z-50">
-                    <Link
-                      to="/"
-                      className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all hover:bg-surface-100 dark:hover:bg-surface-700 text-surface-700 dark:text-surface-300"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                      </svg>
-                      Tasks
-                    </Link>
-                    <Link
-                      to="/dashboard"
-                      className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all hover:bg-surface-100 dark:hover:bg-surface-700 text-surface-700 dark:text-surface-300"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                      </svg>
-                      Dashboard
-                    </Link>
-                  </div>
-                </details>
-              </div>
-              
-              <motion.button 
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-3 rounded-xl bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 transition-all duration-300 shadow-sm"
@@ -129,7 +78,6 @@ function App() {
                 )}
               </motion.div>
             </motion.button>
-            </div>
           </div>
         </div>
       </motion.header>
@@ -139,7 +87,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
