@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import Terms from './pages/Terms';
+import Dashboard from './pages/Dashboard';
 import Privacy from './pages/Privacy';
 import NotFound from './pages/NotFound';
 
@@ -71,9 +72,29 @@ function App() {
                   <svg className="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
+      {/* Navigation */}
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.1 }}
+        className="relative z-10 bg-white/70 dark:bg-surface-900/70 backdrop-blur-lg border-b border-surface-200/30 dark:border-surface-700/30"
+      >
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex gap-1">
+            <Link to="/" className="px-4 py-3 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-primary dark:hover:text-primary hover:bg-surface-100/50 dark:hover:bg-surface-800/50 rounded-lg transition-all duration-200">
+              🏠 Tasks
+            </Link>
+            <Link to="/dashboard" className="px-4 py-3 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-primary dark:hover:text-primary hover:bg-surface-100/50 dark:hover:bg-surface-800/50 rounded-lg transition-all duration-200">
+              📊 Dashboard
+            </Link>
+          </div>
+        </div>
+      </motion.nav>
+
                 ) : (
                   <svg className="w-5 h-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          <Route path="/dashboard" element={<Dashboard />} />
                   </svg>
                 )}
               </motion.div>
