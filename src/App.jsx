@@ -50,6 +50,12 @@ function App() {
                 </svg>
               </div>
               <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  SimpliDo
+                </h1>
+                <p className="text-xs text-surface-500 dark:text-surface-400 -mt-1">Minimal Task Manager</p>
+              </div>
+            </motion.div>
             {/* Navigation Menu */}
             <nav className="hidden md:flex items-center gap-1 bg-surface-100/50 dark:bg-surface-800/50 rounded-xl p-1">
               <Link
@@ -102,15 +108,7 @@ function App() {
                 </details>
               </div>
               
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  SimpliDo
-                </h1>
-                <p className="text-xs text-surface-500 dark:text-surface-400 -mt-1">Minimal Task Manager</p>
-              </div>
-            </motion.div>
-            
-            <motion.button 
-              whileHover={{ scale: 1.1 }}
+              <motion.button 
               whileTap={{ scale: 0.95 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-3 rounded-xl bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 transition-all duration-300 shadow-sm"
@@ -124,7 +122,7 @@ function App() {
                   <svg className="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
-            </div>
+                </motion.div>
                 ) : (
                   <svg className="w-5 h-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
@@ -132,9 +130,9 @@ function App() {
                 )}
               </motion.div>
             </motion.button>
+            </div>
           </div>
         </div>
-          <Route path="/dashboard" element={<Dashboard />} />
       </motion.header>
       
       <main className="flex-grow container mx-auto px-4 md:px-6 py-8 relative z-10">
@@ -142,6 +140,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
