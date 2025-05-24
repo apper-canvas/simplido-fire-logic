@@ -128,7 +128,6 @@ function App() {
                   </svg>
                 )}
               </motion.div>
-              </motion.div>
             </motion.button>
             </div>
           </div>
