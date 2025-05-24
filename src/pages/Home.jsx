@@ -247,20 +247,3 @@ const Home = () => {
 };
 
 export default Home;
-                </div>
-                <div className="flex-1 p-3 rounded-xl bg-surface-800 shadow-neu-dark border border-surface-700 flex items-center justify-center">
-                  <MoonIcon className="w-5 h-5 text-indigo-400" />
-                </div>
-              </div>
-              <p className="mt-3 text-xs text-surface-500 dark:text-surface-400">
-                Use the toggle in the header to switch between light and dark mode
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Home;
