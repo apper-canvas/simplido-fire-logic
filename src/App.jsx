@@ -39,13 +39,17 @@ function App() {
             {darkMode ? '🌞' : '🌙'}
           </button>
         </header>
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
         
         <main className="flex-grow container mx-auto px-4 md:px-6 py-6">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        
+        <footer className="py-4 px-4 md:px-6 text-sm text-center text-surface-500 dark:text-surface-400 bg-gradient-to-t from-aqua-50/50 to-transparent dark:from-transparent">
           <div className="flex flex-col gap-2">
             <p>SimpliDo &copy; {new Date().getFullYear()} - <span className="gradient-text">Aqua Themed</span> Todo App</p>
             <div className="flex justify-center gap-4 text-xs">
@@ -57,10 +61,6 @@ function App() {
               </Link>
             </div>
           </div>
-        </main>
-        
-        <footer className="py-4 px-4 md:px-6 text-sm text-center text-surface-500 dark:text-surface-400 bg-gradient-to-t from-aqua-50/50 to-transparent dark:from-transparent">
-          <p>SimpliDo &copy; {new Date().getFullYear()} - <span className="gradient-text">Aqua Themed</span> Todo App</p>
         </footer>
       </div>
       
